@@ -1,3 +1,3 @@
-﻿LINK : warning LNK4098: библиотека по умолчанию "MSVCRT" противоречит использованию других библиотек; используйте параметр /NODEFAULTLIB:library
-  VulkanProject.vcxproj -> D:\VulkanAPI\VulkanProject\Debug\VulkanProject.exe
-  VulkanProject.vcxproj -> D:\VulkanAPI\VulkanProject\Debug\VulkanProject.pdb (Partial PDB)
+﻿  source.cpp
+  VulkanProject.vcxproj -> D:\Repository\vulkanProj\Debug\VulkanProject.exe
+  VulkanProject.vcxproj -> D:\Repository\vulkanProj\Debug\VulkanProject.pdb (Partial PDB)
