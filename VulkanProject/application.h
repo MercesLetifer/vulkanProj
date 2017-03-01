@@ -1,5 +1,7 @@
 #pragma once
 
+#include "vdeleter.h"
+
 class GLFWwindow;
 
 class Application {
@@ -12,12 +14,14 @@ public:
 
 private:
 	void initWindow();
-	void initVulkan() { }
+	void initVulkan();
 	void mainLoop();
+	void createInstance();
 
 private:
 	const int WIDTH = 800;
 	const int HEIGHT = 600;
 	GLFWwindow* window;
-
+	
+	VDeleter<VkInstance> instance{ vkDestroyInstance };
 };
