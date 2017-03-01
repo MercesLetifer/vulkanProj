@@ -1,25 +1,14 @@
-#include "vdeleter.h"
+#include "application.h"
 
 #include <iostream>
 #include <stdexcept>
 #include <functional>
 
-class HelloTriangleApplication {
-public:
-	void run() {
-		initVulkan();
-		mainLoop();
-	}
 
-private:
-	void initVulkan() { }
-	void mainLoop() { }
-
-};
 
 int main()
 {
-	HelloTriangleApplication app;
+	Application app;
 	
 	try {
 		app.run();
