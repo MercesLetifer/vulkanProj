@@ -26,6 +26,7 @@ public:
 		initWindow();
 		initVulkan();
 		mainLoop();
+		
 	}
 
 private:
@@ -50,6 +51,7 @@ private:
 	void pickPhysicalDevice();
 	bool isDeviceSuitable(VkPhysicalDevice);
 	QueueFamilyIndices findQueueFamilies(VkPhysicalDevice device);
+	void createLogicalDevice();
 
 private:
 	const int WIDTH = 800;
@@ -69,4 +71,7 @@ private:
 	VDeleter<VkInstance> instance{ vkDestroyInstance };
 	VDeleter<VkDebugReportCallbackEXT> callback{ instance, DestroyDebugReportCallbackEXT };
 	VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
+	VDeleter<VkDevice> device{ vkDestroyDevice };
+	VkQueue graphicsQueue;
+
 };
