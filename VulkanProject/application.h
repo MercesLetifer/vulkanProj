@@ -5,6 +5,14 @@
 
 class GLFWwindow;
 
+struct QueueFamilyIndices {
+	int graphicsFamily = -1;
+
+	bool isComplete() { 
+		return graphicsFamily >= 0; 
+	}
+};
+
 VkResult CreateDebugReportCallbackEXT(VkInstance instance, 
 	const VkDebugReportCallbackCreateInfoEXT* pCreateInfo,
 	const VkAllocationCallbacks* pAllocator, VkDebugReportCallbackEXT* pCallback);
@@ -25,7 +33,6 @@ private:
 	void initVulkan();
 	void setupDebugCallback();
 	void mainLoop();
-	void createInstance();
 	bool checkValidationLayerSupport();
 	std::vector<const char*> getRequiredExtensions();
 	static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(
@@ -38,6 +45,11 @@ private:
 		const char* msg,
 		void* userData
 	);
+
+	void createInstance();
+	void pickPhysicalDevice();
+	bool isDeviceSuitable(VkPhysicalDevice);
+	QueueFamilyIndices findQueueFamilies(VkPhysicalDevice device);
 
 private:
 	const int WIDTH = 800;
@@ -55,6 +67,6 @@ private:
 
 	GLFWwindow* window;
 	VDeleter<VkInstance> instance{ vkDestroyInstance };
-//	VDeleter<VkDebugReportCallbackEXT> callback{ instance, DestroyDebugReportCallbackEXT };
 	VDeleter<VkDebugReportCallbackEXT> callback{ instance, DestroyDebugReportCallbackEXT };
+	VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
 };
