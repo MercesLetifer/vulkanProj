@@ -289,7 +289,7 @@ void Application::createImageViews()
 		createInfo.subresourceRange.baseArrayLayer = 0;
 		createInfo.subresourceRange.layerCount = 1;
 
-		if (vkCreateImageView(device, &createInfo, nullptr, swapChainImageViews[0].replace()) != VK_SUCCESS)
+		if (vkCreateImageView(device, &createInfo, nullptr, swapChainImageViews[i].replace()) != VK_SUCCESS)
 			throw std::runtime_error("failed to create image views!");
 	}
 }
@@ -311,7 +311,7 @@ void Application::createGraphicsPipeline()
 	vertShaderStageInfo.module = vertShaderModule;
 	vertShaderStageInfo.pName = "main";
 
-	VkPipelineShaderStageCreateInfo fragShaderStageInfo = {};
+	VkPipelineShaderStageCreateInfo fragShaderStageInfo = { };
 	vertShaderStageInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
 	vertShaderStageInfo.stage = VK_SHADER_STAGE_FRAGMENT_BIT;
 	vertShaderStageInfo.module = fragShaderModule;
