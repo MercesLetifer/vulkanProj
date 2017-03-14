@@ -67,6 +67,7 @@ private:
 	void createLogicalDevice();
 	void createSwapChain();
 	void createImageViews();
+	void createRenderPass();
 	void createGraphicsPipeline();
 	void createShaderModule(const std::vector<char>&, VDeleter<VkShaderModule>&);
 
@@ -101,4 +102,6 @@ private:
 	VkFormat swapChainImageFormat;
 	VkExtent2D swapChainExtent;
 	std::vector<VDeleter<VkImageView>> swapChainImageViews;
+	VDeleter<VkPipelineLayout> pipelineLayout{ device, vkDestroyPipelineLayout };
+
 };
