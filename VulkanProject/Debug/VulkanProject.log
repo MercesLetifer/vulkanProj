@@ -1,8 +1,5 @@
 ﻿  application.cpp
 d:\libraries\glfw-3.2.1.bin.win32\include\glfw\glfw3.h(789): warning C4099: GLFWwindow: имя типа, ранее отображенное с помощью "class", теперь отображено с помощью "struct"
   d:\repository\vulkanproj\vulkanproject\application.h(6): note:  см. объявление "GLFWwindow"
-  Создание кода...
-  Пропуск... (изменения не обнаружены)
-  source.cpp
   VulkanProject.vcxproj -> D:\Repository\vulkanProj\Debug\VulkanProject.exe
   VulkanProject.vcxproj -> D:\Repository\vulkanProj\Debug\VulkanProject.pdb (Partial PDB)

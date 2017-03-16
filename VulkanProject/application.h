@@ -70,6 +70,12 @@ private:
 	void createRenderPass();
 	void createGraphicsPipeline();
 	void createShaderModule(const std::vector<char>&, VDeleter<VkShaderModule>&);
+	void createFramebuffers();
+	void createCommandPool();
+	void createCommandBuffers();
+	void createSemaphores();
+
+	void drawFrame();
 
 private:
 	const int WIDTH = 800;
@@ -102,6 +108,17 @@ private:
 	VkFormat swapChainImageFormat;
 	VkExtent2D swapChainExtent;
 	std::vector<VDeleter<VkImageView>> swapChainImageViews;
+
+	VDeleter<VkRenderPass> renderPass{ device, vkDestroyRenderPass };
 	VDeleter<VkPipelineLayout> pipelineLayout{ device, vkDestroyPipelineLayout };
+	VDeleter<VkPipeline> graphicsPipeline{ device, vkDestroyPipeline };
+
+	std::vector<VDeleter<VkFramebuffer>> swapChainFrameBuffers;
+
+	VDeleter<VkCommandPool> commandPool{ device, vkDestroyCommandPool };
+	std::vector<VkCommandBuffer> commandBuffers;
+
+	VDeleter<VkSemaphore> imageAvailableSemaphore{ device, vkDestroySemaphore };
+	VDeleter<VkSemaphore> renderFinishedSemaphore{ device, vkDestroySemaphore };
 
 };
